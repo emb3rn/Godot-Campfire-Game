@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://.mono/Movement.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.121378, 0.214751, 1 )
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="SphereShape" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="WorldFloor" type="StaticBody" parent="."]
+transform = Transform( 3.18185, 0, 0, 0, 0.0133158, 0, 0, 0, 3.77065, 0, 0, -0.0542015 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WorldFloor"]
+mesh = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="WorldFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000273197, 2.41814, -0.00324409 )
+shape = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.558571, -0.829457, 0, 0.829457, 0.558571, 0, 0.726893, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.108636, 0, 0, 0, 0.241955, 0, 0, 0, 0.0813596, 0, 0, 0 )
+mesh = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0868868, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14872, 0 )
+mesh = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.09299, -0.00795454, 3.10334, 0.0123224 )
+shape = SubResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.979145, -0.0280642, 0.201217, 0.00308919, 0.988242, 0.152865, -0.203141, 0.150299, -0.967545, 0, 3.14872, -6.97591 )
+script = ExtResource( 1 )
