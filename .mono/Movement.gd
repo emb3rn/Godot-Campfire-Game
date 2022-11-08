@@ -2,7 +2,12 @@ extends Camera
 
 var speed_multiplier: int = 1
 
+func recent_event(p_event):
+	if p_event.pressed == p_event.scancode:
+		return p_event.pressed
+
 func _process(delta):
+	
 	if Input.is_action_pressed("ui_up"):
 		translate(Vector3(0, 0, -5 * delta))
 	
