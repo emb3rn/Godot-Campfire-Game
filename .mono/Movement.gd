@@ -22,7 +22,8 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		event.relative
-		print(clamp(rad2deg(event.relative.y), -90, 90))
+		rotate_x(clamp(rad2deg(event.relative.y)/1000, -90, 90))
+		rotate_y(clamp(rad2deg(event.relative.x)/1000, -90, 90))
 		#rotate_y(pos_change.y/5)
 		#rotate_x(pos_change.x/5)
 		
